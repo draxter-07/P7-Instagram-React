@@ -5,9 +5,10 @@ export default function User(){
           <div class="texto">
             <span>
               <strong data-test="name">catanacomics</strong>
-              <ion-icon name="pencil" data-test="edit-name"></ion-icon>
+              <ion-icon name="pencil" data-test="edit-name" onclick="alterar_user()"></ion-icon>
             </span>
           </div>
         </div>
     )
 }
+
