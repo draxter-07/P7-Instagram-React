@@ -1,6 +1,18 @@
 export default function Posts(){
     const users_post_like = [['meowed', 'gato-telefone.svg', ['101.523', 'respondeai']], ['barked', 'dog.svg', ['99.159', 'adorable_animals']]];
-    function like_reaction(){
+    function like_reaction(e){
+      let btn = e.target;
+      btn.setAttribute("style", "background-color: rgb(255, 50, 50);");
+      btn.setAttribute("onClick", "{(e) => deslike_reaction(e)}");
+      let numbers_likes = Number(String(document.getElementById("likes").innerHTML).replaceAll(".", '')) + 1;
+      document.getElementById("likes").innerHTML = numbers_likes;
+    }
+    function deslike_reaction(e){
+      let btn = e.target;
+      btn.setAttribute("style", "background-color: rgb(255, 255, 255);");
+      btn.setAttribute("onClick", "{(e) => like_reaction(e)}");
+      let numbers_likes = Number(String(document.getElementById("likes").innerHTML).replaceAll(".", '')) - 1;
+      document.getElementById("likes").innerHTML = numbers_likes;
     }
     return (
         <div>
@@ -23,7 +35,7 @@ export default function Posts(){
             <div class="fundo">
               <div class="acoes">
                 <div>
-                  <ion-icon name="heart-outline" data-test="like-post" onClick={like_reaction}></ion-icon>
+                  <ion-icon name="heart-outline" data-test="like-post" onClick={(e) => like_reaction(e)}></ion-icon>
                   <ion-icon name="chatbubble-outline"></ion-icon>
                   <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
@@ -33,9 +45,9 @@ export default function Posts(){
               </div>
 
               <div class="curtidas">
-                <img src="assets/img/adorable_animals.svg" alt="adorable_animals"/>
+                <img src={"assets/img/" + data[2][1] + ".svg"} alt={data[2][1]}/>
                 <div class="texto">
-                  Curtido por <strong>{data[2][1]}</strong> e <strong data-test="likes-number">outras {data[2][0]} pessoas</strong>
+                  Curtido por <strong>{data[2][1]}</strong> e <strong data-test="likes-number">outras <span id="likes">{data[2][0]}</span> pessoas</strong>
                 </div>
               </div>
             </div>
