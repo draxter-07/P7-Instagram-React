@@ -1,7 +1,12 @@
 import ReactDOM from "react-dom"
 import App from "./app.js"
-import username from "./user.js"
-import alterar_user from "./user.js"
 
-const app = App();
-ReactDOM.render(app, document.querySelector(".root"));
+function Site(){
+    return(
+        <div>
+            <App/>
+        </div>
+    )
+}
+const site = Site();
+ReactDOM.render(site, document.querySelector(".root"));

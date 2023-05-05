@@ -9,7 +9,7 @@ export default function Suggestions(){
           {users.map((user) =>
           <div class="sugestao">
             <div class="usuario">
-              <img src="assets/img/bad.vibes.memes.svg" alt="bad.vibes.memes.svg"/>
+              <img src={"./assets/img/" + user + ".svg"} alt={user}/>
               <div class="texto">
                 <div class="nome">{user}</div>
                 <div class="razao">Segue você</div>

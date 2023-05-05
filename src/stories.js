@@ -5,7 +5,7 @@ export default function Stories(){
             {users.map((user) => 
             <div class="story">
                 <div class="imagem">
-                    <img src="assets/img/9gag.svg" alt="9gag"/>
+                    <img src={"./assets/img/" + user + ".svg"} alt={user}/>
                 </div>
                 <div class="usuario">
                     {user}
