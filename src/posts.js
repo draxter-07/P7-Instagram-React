@@ -37,7 +37,7 @@ export default function Posts(){
             </div>
 
             <div class="conteudo">
-              <img src={"./assets/img/" + data[1]} alt="dog" data-test="post-image"/>
+              <img src={"./assets/img/" + data[1]} alt={data[1]} data-test="post-image" onClick={(e) => like_reaction(e)}/>
             </div>
 
             <div class="fundo">
