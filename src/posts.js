@@ -13,6 +13,15 @@ export default function Posts(){
       }
       document.getElementById('likes' + btn.split('likebtn')[1]).innerHTML = numbers_likes;
     }
+    function like_img(e){
+      let btn = e.target.id;
+      let numbers_likes;
+      if (document.getElementById('likebtn' + btn.split('img')[1]).style.backgroundColor != "rgb(255, 50, 50)"){
+        document.getElementById('likebtn' + btn.split('img')[1]).setAttribute("style", "background-color: rgb(255, 50, 50);");
+        numbers_likes = Number(String(document.getElementById('likes' + btn.split('img')[1]).innerHTML).replaceAll(".", '')) + 1;
+        document.getElementById('likes' + btn.split('img')[1]).innerHTML = numbers_likes;
+      }
+    }
     function save_reaction(e){
       let btn = e.target.id;
       if (document.getElementById(btn).style.backgroundColor == "rgb(0, 0, 0)"){
@@ -37,7 +46,7 @@ export default function Posts(){
             </div>
 
             <div class="conteudo">
-              <img src={"./assets/img/" + data[1]} alt={data[1]} data-test="post-image" onClick={(e) => like_reaction(e)}/>
+              <img src={"./assets/img/" + data[1]} alt={data[1]} data-test="post-image" onClick={(e) => like_img(e)} id={"img" + data[0] + data[1]}/>
             </div>
 
             <div class="fundo">
